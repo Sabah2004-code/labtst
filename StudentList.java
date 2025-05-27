@@ -5,16 +5,17 @@ import java.util.*;
 
 public class StudentList {
     public static void main(String[] args) {
-        // Check arguments
-        
+        // argument check;
+         if (args.length == 0) {
+            System.out.println("No arguments found!!!");
+            return;
+        }
+        if(args[0].empty())
         if (args[0].equals("a")) {
             System.out.println("Loading data ...");
+            //handling error
             try {
-                BufferedReader s = new BufferedReader(
-                    new InputStreamReader(
-                        new FileInputStream("students.txt")
-                    )
-                );
+                BufferedReader sss = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt")));
                 String r = s.readLine();
                 String[] i = r.split(",");
                 for (String j : i) {
@@ -25,12 +26,9 @@ public class StudentList {
             }
         } else if (args[0].equals("r")) {
             System.out.println("Loading data ...");
+            //handling error
             try {
-                BufferedReader g = new BufferedReader(
-                    new InputStreamReader(
-                        new FileInputStream("students.txt")
-                    )
-                );
+                BufferedReader g = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt")));
                 String r = g.readLine();
                 System.out.println(r);
                 String[] i = r.split(",");
@@ -42,10 +40,9 @@ public class StudentList {
             }
         } else if (args[0].contains("+")) {
             System.out.println("Loading data ...");
+           // handling error
             try {
-                BufferedWriter s = new BufferedWriter(
-                    new FileWriter("students.txt", true)
-                );
+                BufferedWriter sss = new BufferedWriter(new FileWriter("students.txt", true));
                 String t = args[0].substring(1);
                 Date d = new Date();
                 String df = "dd/mm/yyyy-hh:mm:ss a";
@@ -59,11 +56,7 @@ public class StudentList {
         } else if (args[0].contains("?")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader g = new BufferedReader(
-                    new InputStreamReader(
-                        new FileInputStream("students.txt")
-                    )
-                );
+                BufferedReader ggg = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt")));
                 String r = g.readLine();
                 String[] i = r.split(",");
                 boolean done = false;
@@ -79,12 +72,9 @@ public class StudentList {
             }
         } else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
+            //handling error
             try {
-                BufferedReader s = new BufferedReader(
-                    new InputStreamReader(
-                        new FileInputStream("students.txt")
-                    )
-                );
+                BufferedReader sss = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt")));
                 String D = s.readLine();
                 char[] a = D.toCharArray();
                 boolean in_word = false;
