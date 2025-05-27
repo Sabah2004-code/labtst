@@ -45,19 +45,24 @@ public class StudentList {
             }
 
         } else if (args[0].equals("+")) {
+            if (args.length < 2) {
+                System.out.println("Please provide a student name to add.");
+                return;
+            }
             System.out.println("Loading data ...");
-            try{
-                BufferedWriter s = new BufferedWriter(
-                        new FileWriter("students.txt", true));
-                String t = args[0].substring(1);
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("students.txt", true));
+                String st = args[1];
                 Date d = new Date();
-                String df = "dd/mm/yyyy-hh:mm:ss a";
-                DateFormat dateFormat = new SimpleDateFormat(df);
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss a");
                 String fd = dateFormat.format(d);
-                s.write(", " +t+ "\nList last updated on" +fd);
-                s.close();
-            } catch (Exception e){}
-            System.out.println("Data Loaded.");
+                writer.write(", " + st + "\nList last updated on " + fd);
+                writer.close();
+                System.out.println("Data Loaded.");
+            } catch (Exception e) {
+                System.out.println("Error writing to file.");
+            }
+
         }
         else if (args[0].equals("?")) {
             if (args.length < 2) {
