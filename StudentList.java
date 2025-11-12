@@ -26,7 +26,7 @@ public class StudentList {
             catch (Exception e){
                 System.out.println("failed to load data!!!");
             }
-
+          // this is shefa
         } else if (args[0].equals("r")) {
             System.out.println("Loading data ...");
             try{
